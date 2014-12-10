@@ -3,8 +3,8 @@
    "socialUrl":"",
    "start":0,
    "limit":20,
-   "geoStoreBase": "http://localhost:8082/geostore/rest/",
-   "adminUrl": "http://localhost:8082/admin/",
+   "geoStoreBase": "http://lose.geo-solutions.it/geostore-ingestion/rest/",
+   "adminUrl": "http://lose.geo-solutions.it/admin/",
    "msmTimeout":30000,
    "twitter":{
       "via":"geosolutions_it",
@@ -39,7 +39,7 @@
    ],
    "tools":[{
         "ptype": "mxp_categoryinitializer",
-		"neededCategories": ["ARCHIVEDRUNS"]
+		"neededCategories": ["ARCHIVEDRUNS", "ARCHIVEDLOGS"]
     },{
         "ptype": "mxp_login",
         "pluginId": "loginTool",
@@ -68,14 +68,14 @@
         }
    },{
          "ptype": "mxp_geobatch_flows",
-         "geoBatchRestURL":"http://localhost:9000/geobatch/rest/",
-         "geoStoreRestURL":"http://localhost:8082/geostore/rest/",
+         "geoBatchRestURL":"http://lose.geo-solutions.it/geobatch/rest/",
+         "geoStoreRestURL":"http://lose.geo-solutions.it/geostore-ingestion/rest/",
 		 "skipFlowsNotInRunConfigs": true,
 		 "showConsumersDetails": true,
 		 "consumersPlugins": [
 			{
 				"ptype": "importmetadata",
-				"wfsURL": "http://localhost:8080/geoserver/ows", 
+				"wfsURL": "http://lose.geo-solutions.it/geoserver-ingestion/ows", 
                 "metadataFeature": "import_metadata", 
                 "metadataErrorsFeature": "import_metadata_errors", 
                 "metadataNS": "lose",
@@ -86,19 +86,19 @@
          "runConfigs": {
             "targetrunner":{
                 "xtype": "geobatch_run_local_form",
-                "baseDir": "j:\\Develop\\destination\\lose_ingestion_temp",
+                "baseDir": "/opt/lose_ingestion",
                 "fileRegex": "\\.zip$",
                 "path":"/bersagli"
             },
             "originalroadrunner":{
                 "xtype": "geobatch_run_local_form",
-                "baseDir": "j:\\Develop\\destination\\lose_ingestion_temp",
+                "baseDir": "/opt/lose_ingestion",
                 "fileRegex": "\\.zip$",
                 "path":"/archi"
             },
 			"roadcalculator":{
                 "xtype": "geobatch_run_roads_processing",
-				"wfsURL": "http://localhost:8080/geoserver/ows", 
+				"wfsURL": "http://lose.geo-solutions.it/geoserver-ingestion/ows", 
                 "partnerFeature": "siig_d_partner", 
                 "partnerNS": "lose",
 				"metadataFeature": "import_metadata", 
@@ -108,13 +108,13 @@
             },
 			"pterrunner":{
                 "xtype": "geobatch_run_local_form",
-                "baseDir": "j:\\Develop\\destination\\lose_ingestion_temp",
+                "baseDir": "/opt/lose_ingestion",
                 "fileRegex": "\\.zip$",
                 "path":"/pter"
             },
 			"migration":{
                 "xtype": "geobatch_run_migration",
-				"wfsURL": "http://localhost:8080/geoserver/ows", 
+				"wfsURL": "http://lose.geo-solutions.it/geoserver-ingestion/ows", 
                 "partnerFeature": "siig_d_partner", 
                 "partnerNS": "lose",
 				"metadataFeature": "import_metadata", 

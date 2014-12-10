@@ -1,9 +1,9 @@
 .metadata_ic {
-    background:url(../img/page_white_text.png) no-repeat;
+    background:url(../theme/app/img/silk/page_white_text.png) no-repeat;
 }
 
 .geobatch-consumer-grid  .x-grid3-row-body {
-	margin-right: 100px;
+	margin-right: 120px;
 }
 
 .metadata_main {
