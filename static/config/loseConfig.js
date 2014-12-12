@@ -39,7 +39,7 @@
    ],
    "tools":[{
         "ptype": "mxp_categoryinitializer",
-		"neededCategories": ["ARCHIVEDRUNS"]
+		"neededCategories": ["ARCHIVEDRUNS", "ARCHIVEDLOGS"]
     },{
         "ptype": "mxp_login",
         "pluginId": "loginTool",
