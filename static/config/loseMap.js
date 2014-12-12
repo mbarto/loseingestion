@@ -1,5 +1,5 @@
 {
-   "geoStoreBase":"",
+   "geoStoreBase":"http://lose.geo-solutions.it/geostore-ingestion/",
    "defaultLanguage": "it",
    "advancedScaleOverlay": true,
    "tab": true,
