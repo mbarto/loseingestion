@@ -72,6 +72,7 @@
          "geoStoreRestURL":"http://lose.geo-solutions.it/geostore-ingestion/rest/",
 		 "skipFlowsNotInRunConfigs": true,
 		 "showConsumersDetails": true,
+         "forceOrder": true,
 		 "consumersPlugins": [
 			{
 				"ptype": "importmetadata",
@@ -88,13 +89,22 @@
                 "xtype": "geobatch_run_local_form",
                 "baseDir": "/opt/lose_ingestion",
                 "fileRegex": "\\.zip$",
-                "path":"/bersagli"
+                "path":"/bersagli",
+                "order": 1
+            },
+			"pterrunner":{
+                "xtype": "geobatch_run_local_form",
+                "baseDir": "/opt/lose_ingestion",
+                "fileRegex": "\\.zip$",
+                "path":"/pter",
+                "order": 2
             },
             "originalroadrunner":{
                 "xtype": "geobatch_run_local_form",
                 "baseDir": "/opt/lose_ingestion",
                 "fileRegex": "\\.zip$",
-                "path":"/archi"
+                "path":"/archi",
+                "order": 3
             },
 			"roadcalculator":{
                 "xtype": "geobatch_run_roads_processing",
@@ -104,13 +114,8 @@
 				"metadataFeature": "import_metadata", 
                 "metadataNS": "lose",
 				"wfsVersion": "1.1.0",
-				"height": 100
-            },
-			"pterrunner":{
-                "xtype": "geobatch_run_local_form",
-                "baseDir": "/opt/lose_ingestion",
-                "fileRegex": "\\.zip$",
-                "path":"/pter"
+				"height": 100,
+                "order": 4
             },
 			"migration":{
                 "xtype": "geobatch_run_migration",
@@ -120,7 +125,8 @@
 				"metadataFeature": "import_metadata", 
                 "metadataNS": "lose",
 				"wfsVersion": "1.1.0",
-				"height": 100
+				"height": 100,
+                "order": 5
             }
 
            
